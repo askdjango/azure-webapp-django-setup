@@ -6,13 +6,13 @@ import sys
 try:
     import requests
 except ImportError:
-    print('에러) requests 팩키지를 설치해주세요.', file=sys.stderr)
+    print('Error) Missing python package : requests', file=sys.stderr)
     sys.exit(1)
 
 try:
     from django.conf import settings
 except ImportError:
-    print('에러) django 팩키지를 설치해주세요.', file=sys.stderr)
+    print('Error) Missing python pakcage : django', file=sys.stderr)
     sys.exit(1)
 
 settings.configure(
@@ -29,7 +29,7 @@ from django.template import engines
 
 def main(settings_module):
     if not os.path.exists('requirements.txt'):
-        print('에러) requirements.txt 파일을 생성해주세요.')
+        print('Error) Missing file : requirements.txt', file=sys.stderr)
         sys.exit(1)
 
     base_url = 'https://raw.githubusercontent.com/askdjango/azure-webapp-django-setup/master/'
