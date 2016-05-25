@@ -53,6 +53,8 @@ Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크�
 
 ## Azure WebApp 에 배포하기
 
+[배포 스크린캐스트](https://youtu.be/cOwA-gzZWHI) 를 확인해보세요. ;)
+
 ### Github 저장소 만들기
 
 새로운 Github 저장소에 생성해서, 위 Django 프로젝트를 추가해주세요. Azure WebApp에서는 이 저장소로부터 소스코드를 끌어다가 배포를 수행합니다.
