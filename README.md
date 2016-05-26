@@ -21,12 +21,12 @@ Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크�
 		 * manage.py
 		 * myproject 디렉토리
 	 * 하위 디렉토리에 django 프로젝트를 두고자할 경우, `web.3.4.config` 수정이 필요합니다.
- 2. 프로젝트 ROOT 에 `requirements.txt` 파일이 꼭 필요하며, 현 Django 프로젝트 구동에 필요한 파이썬 팩키지들을 모두 명세해주세요. Azure WebApp 배포 시에 본 `requirements.txt` 에 명시한 파이썬 팩키지가 자동설치됩니다.
+ 2. 프로젝트 ROOT 에 `requirements.txt` 파일이 꼭 필요하며, 현 Django 프로젝트 구동에 필요한 파이썬 팩키지들을 모두 명시해주세요. Azure WebApp 배포 시에 본 `requirements.txt` 에 명시한 파이썬 팩키지가 자동설치됩니다.
  3. `프로젝트/settings.py` 에 STATIC/MEDIA 설정을 꼭 넣어주세요. `web.3.4.config` 에서 아래 설정값으로 STATIC/MEDIA 파일 서빙을 하도록 설정되어있습니다.
-	 * `settings.STATIC_URL = '/static/'`
-	 * `settings.STATIC_ROOT = os.path.join(BASE_DIR, 'static')`
-	 * `settings.MEDIA_URL = '/media/'`
-	 * `settings.MEDIA_ROOT = os.path.join(BASE_DIR, 'media')`
+	 * `STATIC_URL = '/static/'`
+	 * `STATIC_ROOT = os.path.join(BASE_DIR, 'static')`
+	 * `MEDIA_URL = '/media/'`
+	 * `MEDIA_ROOT = os.path.join(BASE_DIR, 'media')`
 
 생성된 프로젝트는 [azure-webapp-django-setup-sample](https://github.com/allieus/azure-webapp-django-setup-sample) 저장소를 참고하세요. [커밋내역](https://github.com/allieus/azure-webapp-django-setup-sample/commits/master) 을 통해 소스코드 수정내역을 살펴보세요.
 
@@ -35,20 +35,20 @@ Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크�
 
 ### 사용법 (Python 3를 쓰실 경우)
 
-    python -c "from urllib.request import urlopen; print(urlopen('https://raw.githubusercontent.com/askdjango/azure-webapp-django-setup/master/azure_webapp_setup.py').read().decode('utf8'))" | python - <django-settings-module>
+    python -c "from urllib.request import urlopen; print(urlopen('https://festi.kr/azure/setup.py').read().decode('utf8'))" | python - <django-settings-module>
 
 명령 끝에 Azure WebApp 상에서 쓸 `DJANGO_SETTINGS_MODULE` 를 다음과 같이 지정해주세요. 다음은 사용 예입니다.
 
-    python -c "from urllib.request import urlopen; print(urlopen('https://raw.githubusercontent.com/askdjango/azure-webapp-django-setup/master/azure_webapp_setup.py').read().decode('utf8'))" | python - myproject.settings
+    python -c "from urllib.request import urlopen; print(urlopen('https://festi.kr/azure/setup.py').read().decode('utf8'))" | python - myproject.settings
 
 
 ### 사용법 (Python 2를 쓰실 경우)
 
-    python -c "from urllib import urlopen; print(urlopen('https://raw.githubusercontent.com/askdjango/azure-webapp-django-setup/master/azure_webapp_setup.py').read())" | python - <django-settings-module>
+    python -c "from urllib import urlopen; print(urlopen('https://festi.kr/azure/setup.py').read())" | python - <django-settings-module>
 
 명령 끝에 Azure WebApp 상에서 쓸 `DJANGO_SETTINGS_MODULE` 를 다음과 같이 지정해주세요. 다음은 사용 예입니다.
 
-    python -c "from urllib import urlopen; print(urlopen('https://raw.githubusercontent.com/askdjango/azure-webapp-django-setup/master/azure_webapp_setup.py').read())" | python - myproject.settings
+    python -c "from urllib import urlopen; print(urlopen('https://festi.kr/azure/setup.py').read())" | python - myproject.settings
 
 
 ## Azure WebApp 에 배포하기
