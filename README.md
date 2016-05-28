@@ -47,6 +47,10 @@ Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크�
 
 생성된 프로젝트는 [azure-webapp-django-setup-sample](https://github.com/allieus/azure-webapp-django-setup-sample) 저장소를 참고하세요. [커밋내역](https://github.com/allieus/azure-webapp-django-setup-sample/commits/master) 을 통해 소스코드 수정내역을 살펴보세요.
 
+### 주의사항
+
+ * `env` 이름으로 virtualenv를 만들어서 업로드하지 마세요. virtualenv는 Azure WebApp상에서 배포과정 중에 `env` 이름으로 자동으로 생성이 됩니다.
+
 
 ## Azure WebApp 에 필요한 파일 생성
 
