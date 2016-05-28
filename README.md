@@ -1,17 +1,34 @@
 
 # azure-webapp-django-setup
 
-명령 한 줄 만으로 Azure Webapp Django 배포에 필요한 파일들이 모두 생성이 됩니다.
+[Azure 공식문서 - Azure에서 Django를 활용하여 웹앱 만들기](https://azure.microsoft.com/documentation/articles/web-sites-python-create-deploy-django-app/) 문서에도 배포방법을 설명하고 있습니다. 하지만 불필요한 설명이 많고 배포스크립트가 ***bat 스크립트***로 되어있어서 (암호같아요 ;;; ), 불필요한 파일들을 정리하고 코드 가독성이 좋도록 ***Azure WebApp Django Setup*** 프로젝트를 만들었습니다.
 
-Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크립트에서는 `2.7`을 지원하지 않습니다. `deploy_settings.py` 에서 `PYTHON_VERSION` 을 `2.7`로 수정하셔도 동작하지 않습니다.
 
-다음 파일들이 생성이 됩니다.
+## Azure WebApp
+
+[Azure](https://azure.microsoft.com/)는 Microsoft에서 서비스하고 있는 클라우드 서비스입니다. 클라우드 서비스는 크게 IaaS, PaaS, SaaS로 구분됩니다. Azure PaaS서비스로서 [Azure WebApp](https://azure.microsoft.com/services/app-service/web/)가 서비스되고 있습니다.
+
+Azure WebApp의 주요 특징
+
+ * 인프라 운영부담이 없습니다. (PaaS의 일반적인 특징)
+ * Github 등을 활용한 지속적인 배포지원 : Github 에 올리는 것만으로 배포를 수행할 수 있습니다.
+ * 지원언어 : .NET, Java, PHP, Node.js 및 ***Python***
+ * 배포된 프로그램은 윈도우, IIS 웹서버 상에서 구동됩니다.
+
+
+## Azure WebApp Django Setup
+
+Azure WebApp 상에서 Django 애플리케이션을 돌리기 위해서는, 다음 파일들이 필요합니다.
 
  * .deployment : 배포 스크립트 지정
  * deploy.py : 실질적인 배포작업을 수행하는 파이썬 스크립트
  * deploy\_settings.py : 배포 환경설정
  * web.3.4.config : 파이썬 3.4용 웹서비스 설정
  * ptvs\_virtualenv\_proxy.py : Python Tools for Visual Studio 용 가상환경 프록시
+
+명령 한 줄 만으로 Azure Webapp Django 배포에 필요한 위 파일들이 모두 생성이 됩니다.
+
+Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크립트에서는 `2.7`을 지원하지 않습니다. `deploy_settings.py` 에서 `PYTHON_VERSION` 을 `2.7`로 수정하셔도 동작하지 않습니다.
 
 
 ## 소스코드 선행작업
