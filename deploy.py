@@ -121,7 +121,7 @@ class AskDjango(object):
                 django_settings_module = root.find(".//*[@key='DJANGO_SETTINGS_MODULE']").get('value')
 
                 if not self.is_skip_django_extra:
-                    log('Collecting Django static files. You can skip Django specific steps with a .skipDjango file.')
+                    log('Collecting Django static files.')
                     if not os.path.exists(self.get_deploy_path('static')):
                         os.makedirs(self.get_deploy_path('static'))
 
