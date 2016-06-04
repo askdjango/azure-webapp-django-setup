@@ -33,13 +33,17 @@ Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크�
 
 ## 소스코드 선행작업
 
- 1. 디렉토리 ROOT는 직접적으로 Django 프로젝트로 시작해야 합니다.
+ 1. 스크립트 실행을 위해 `requests` 라이브러리가 필요합니다. 아래 명령으로 설치해주세요.
+
+    pip install requests
+
+ 2. 디렉토리 ROOT는 직접적으로 Django 프로젝트로 시작해야 합니다.
 	 * 지원되는 구조
 		 * manage.py
 		 * myproject 디렉토리
 	 * 하위 디렉토리에 django 프로젝트를 두고자할 경우, `web.3.4.config` 수정이 필요합니다.
- 2. 프로젝트 ROOT 에 `requirements.txt` 파일이 꼭 필요하며, 현 Django 프로젝트 구동에 필요한 파이썬 팩키지들을 모두 명시해주세요. Azure WebApp 배포 시에 본 `requirements.txt` 에 명시한 파이썬 팩키지가 자동설치됩니다.
- 3. `프로젝트/settings.py` 에 STATIC/MEDIA 설정을 꼭 넣어주세요. `web.3.4.config` 에서 아래 설정값으로 STATIC/MEDIA 파일 서빙을 하도록 설정되어있습니다.
+ 3. 프로젝트 ROOT 에 `requirements.txt` 파일이 꼭 필요하며, 현 Django 프로젝트 구동에 필요한 파이썬 팩키지들을 모두 명시해주세요. Azure WebApp 배포 시에 본 `requirements.txt` 에 명시한 파이썬 팩키지가 자동설치됩니다.
+ 4. `프로젝트/settings.py` 에 STATIC/MEDIA 설정을 꼭 넣어주세요. `web.3.4.config` 에서 아래 설정값으로 STATIC/MEDIA 파일 서빙을 하도록 설정되어있습니다.
 	 * `STATIC_URL = '/static/'`
 	 * `STATIC_ROOT = os.path.join(BASE_DIR, 'static')`
 	 * `MEDIA_URL = '/media/'`
