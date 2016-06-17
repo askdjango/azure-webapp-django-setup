@@ -33,8 +33,9 @@ Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크�
 
 ## 소스코드 선행작업
 
- 1. 스크립트 실행을 위해 `requests` 라이브러리가 필요합니다. 아래 명령으로 설치해주세요.
+ 1. 스크립트 실행을 위해 `django` 라이브러리와 `requests` 라이브러리가 필요합니다. 아래 명령으로 설치해주세요.
 
+    pip install django
     pip install requests
 
  2. 디렉토리 ROOT는 직접적으로 Django 프로젝트로 시작해야 합니다.
@@ -42,7 +43,12 @@ Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크�
 		 * manage.py
 		 * myproject 디렉토리
 	 * 하위 디렉토리에 django 프로젝트를 두고자할 경우, `web.3.4.config` 수정이 필요합니다.
- 3. 프로젝트 ROOT 에 `requirements.txt` 파일이 꼭 필요하며, 현 Django 프로젝트 구동에 필요한 파이썬 팩키지들을 모두 명시해주세요. Azure WebApp 배포 시에 본 `requirements.txt` 에 명시한 파이썬 팩키지가 자동설치됩니다.
+
+ 3. 프로젝트 ROOT 에 `requirements.txt` 파일이 꼭 필요하며, 현 Django 프로젝트 구동에 필요한 파이썬 팩키지들을 모두 명시해주세요. Azure WebApp 배포 시에 본 `requirements.txt` 에 명시한 파이썬 팩키지가 자동설치됩니다. 아래는 예시입니다.
+
+    django
+    pillow
+
  4. `프로젝트/settings.py` 에 STATIC/MEDIA 설정을 꼭 넣어주세요. `web.3.4.config` 에서 아래 설정값으로 STATIC/MEDIA 파일 서빙을 하도록 설정되어있습니다.
 	 * `STATIC_URL = '/static/'`
 	 * `STATIC_ROOT = os.path.join(BASE_DIR, 'static')`
@@ -58,22 +64,11 @@ Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크�
 
 ## Azure WebApp 에 필요한 파일 생성
 
-### 사용법 (Python 3를 쓰실 경우)
-
-    python -c "from urllib.request import urlopen; print(urlopen('https://festi.kr/azure/setup.py').read().decode('utf8'))" | python - <django-settings-module>
+    python -c "import requests; eval(requests.get('https://festi.kr/azure/setup.py').text)" | python - <django-settings-module>
 
 명령 끝에 Azure WebApp 상에서 쓸 `DJANGO_SETTINGS_MODULE` 를 다음과 같이 지정해주세요. 다음은 사용 예입니다.
 
-    python -c "from urllib.request import urlopen; print(urlopen('https://festi.kr/azure/setup.py').read().decode('utf8'))" | python - myproject.settings
-
-
-### 사용법 (Python 2를 쓰실 경우)
-
-    python -c "from urllib import urlopen; print(urlopen('https://festi.kr/azure/setup.py').read())" | python - <django-settings-module>
-
-명령 끝에 Azure WebApp 상에서 쓸 `DJANGO_SETTINGS_MODULE` 를 다음과 같이 지정해주세요. 다음은 사용 예입니다.
-
-    python -c "from urllib import urlopen; print(urlopen('https://festi.kr/azure/setup.py').read())" | python - myproject.settings
+    python -c "import requests; eval(requests.get('https://festi.kr/azure/setup.py').text)" | python - myproject.settings
 
 
 ## Azure WebApp 에 배포하기
@@ -92,10 +87,10 @@ Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크�
 
 좌측 사이드 메뉴에서 `New` 선택 - `Web + Mobile` 선택 - `Web App` 메뉴에서 다음 항목 입력하시고, 하단에 `Create` 버튼을 클릭해주세요. 그러면 Azure WebApp 이 생성이 됩니다. 최대 3분 정도 소요됩니다.
 
- * `App Name` : `원하시는 이름`을 입력해주세요. 유일한 이름이어야합니다. 여러분께서 주로 쓰시는 아이디를 써주시면 좋습니다.
+ * `App Name` : `원하시는 이름`을 입력해주세요. 유일한 이름이어야합니다. 여러분께서 주로 쓰시는 아이디를 써주시면 좋습니다. 이는 웹사이트의 주소가 됩니다.
  * `Subscription` : 디폴트로 둡니다.
  * `Resource Group` : 위 `App Name` 에 입력한 이름을 그대로 입력해주세요.
- * `App Service Plan/Location` : 디폴트로 둡니다.
+ * `App Service Plan/Location` : 디폴트로 둡니다. 운영할 Azure WebApp 의 규모와 데이터센터 위치를 선택할 수 있습니다.
 
 좌측 사이드 메뉴에서 `App Services` 항목에서 생성한 `WebApp` 을 선택해주세요.
 
