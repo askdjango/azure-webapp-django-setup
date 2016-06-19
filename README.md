@@ -133,7 +133,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 ## 참고
 
-Azure WebApp 에 배포한 Django 프로젝트 샘플은 [이곳](http://askdjango20160525.azurewebsites.net/)에서 확인하실 수 있으며, 소스코드는 [github 저장소](https://github.com/allieus/azure-webapp-django-setup-sample)에서 확인하실 수 있습니다.
+Azure WebApp 에 배포한 Django 프로젝트 샘플은 [이곳](http://msdjangoisbest.azurewebsites.net/)에서 확인하실 수 있으며, 소스코드는 [github 저장소](https://github.com/askdjango/djangoisbest)에서 확인하실 수 있습니다.
 
 
 ## 관련 문의
@@ -142,5 +142,7 @@ Azure WebApp 에 배포한 Django 프로젝트 샘플은 [이곳](http://askdjan
  * [AskDjango 페이스북 페이지](http://facebook.com/askdjango)
  * [AskDjango 페이스북 그룹](http://facebook.com/groups/askdjango)
  * [AskDjango 공식 사이트](http://festi.kr)
-	 * [장고 차근차근 시작하기, 강의](http://festi.kr/class/django/)
+	 * [서비스 차근차근 시작하기, 강의](http://festi.kr/class/service/) : 접수 중
+     * [장고 차근차근 시작하기, 강의](http://festi.kr/class/django/) : 4기 진행 중
+     * [파이썬 차근차근 시작하기, 강의](http://festi.kr/class/python/) : 4기 준비 중
 
