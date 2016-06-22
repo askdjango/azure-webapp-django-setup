@@ -4,6 +4,13 @@
 [Azure 공식문서 - Azure에서 Django를 활용하여 웹앱 만들기](https://azure.microsoft.com/documentation/articles/web-sites-python-create-deploy-django-app/) 문서에도 배포방법을 설명하고 있습니다. 하지만 불필요한 설명이 많고 배포스크립트가 ***bat 스크립트***로 되어있어서 (암호같아요 ;;; ), 불필요한 파일들을 정리하고 코드 가독성이 좋도록 ***Azure WebApp Django Setup*** 프로젝트를 만들었습니다.
 
 
+## 튜토리얼 실습 영상
+
+본 스크립트를 통해, Azure WebApp 배포를 실습하는 영상을 찍어봤습니다.
+
+ * [장고걸스 튜토리얼, Azure WebApp 배포 동영상 (한글버전)](https://www.facebook.com/askdjango/videos/634463410050050/)
+
+
 ## Azure WebApp
 
 [Azure](https://azure.microsoft.com/)는 Microsoft에서 서비스하고 있는 클라우드 서비스입니다. 클라우드 서비스는 크게 IaaS, PaaS, SaaS로 구분됩니다. Azure PaaS서비스로서 [Azure WebApp](https://azure.microsoft.com/services/app-service/web/)가 서비스되고 있습니다.
