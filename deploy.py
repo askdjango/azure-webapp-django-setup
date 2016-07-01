@@ -36,8 +36,13 @@ class AskDjango(object):
 
         self.python_version = deploy_settings.PYTHON_VERSION
         self.python_runtime = 'python-%s' % self.python_version
-        self.python_path = deploy_settings.PYTHON_PATH
-        self.python_env_module = deploy_settings.PYTHON_ENV_MODULE
+
+        if self.python_version.startswith('2.'):
+            self.python_env_module = 'virtualenv'
+            self.python_path = os.path.join(os.environ['SYSTEMDRIVE'] + os.path.sep, 'python27', 'python.exe')
+        else:
+            self.python_env_module = 'venv'
+            self.python_path = os.path.join(os.environ['SYSTEMDRIVE'] + os.path.sep, 'python34', 'python.exe')
 
         self.is_skip_python_deployment = deploy_settings.IS_SKIP_PYTHON_DEPLOYMENT
         self.is_skip_django_extra = deploy_settings.IS_SKIP_DJANGO_EXTRA

@@ -5,7 +5,7 @@ import requests
 
 def main():
     base = 'https://raw.githubusercontent.com/askdjango/azure-webapp-django-setup/master/'
-    names = ['.deployment', 'deploy.py', 'deploy_settings.py', 'web.3.4.config', 'ptvs_virtualenv_proxy.py']
+    names = ['.deployment', 'deploy.py', 'deploy_settings.py', 'web.2.7.config', 'web.3.4.config', 'ptvs_virtualenv_proxy.py']
 
     for name in names:
         url = base + name

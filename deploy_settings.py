@@ -2,8 +2,9 @@
 import os
 
 PYTHON_VERSION = '3.4'
-PYTHON_PATH = os.path.join(os.environ['SYSTEMDRIVE'] + os.path.sep, 'python34', 'python.exe')
-PYTHON_ENV_MODULE = 'venv'
+
+assert(PYTHON_VERSION in ('3.4', '2.7'))
+
 
 # 가상환경을 env 디렉토리에 이미 생성하셨다면, True로 설정해주세요.
 IS_SKIP_PYTHON_DEPLOYMENT = False

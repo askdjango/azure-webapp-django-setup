@@ -31,11 +31,12 @@ Azure WebApp 상에서 Django 애플리케이션을 돌리기 위해서는, 다�
  * deploy.py : 실질적인 배포작업을 수행하는 파이썬 스크립트
  * deploy\_settings.py : 배포 환경설정
  * web.3.4.config : 파이썬 3.4용 웹서비스 설정
+ * web.2.7.config : 파이썬 2.7용 웹서비스 설정
  * ptvs\_virtualenv\_proxy.py : Python Tools for Visual Studio 용 가상환경 프록시
 
 명령 한 줄 만으로 Azure Webapp Django 배포에 필요한 위 파일들이 모두 생성이 됩니다.
 
-Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크립트에서는 `2.7`을 지원하지 않습니다. `deploy_settings.py` 에서 `PYTHON_VERSION` 을 `2.7`로 수정하셔도 동작하지 않습니다.
+파이썬 `3.4` 와 `2.7` 을 지원합니다. 디폴트로 `3.4` 로 설정되어있습니다. `2.7` 로 설정하실려면,  `deploy_settings.py` 에서 `PYTHON_VERSION` 을 `2.7`로 수정하시면 됩니다.
 
 
 ## 소스코드 선행작업
@@ -48,14 +49,14 @@ Azure WebApp 에서는 파이썬 `2.7`과 `3.4`를 지원하지만, 본 스크�
 	 * 지원되는 구조
 		 * manage.py
 		 * myproject 디렉토리
-	 * 하위 디렉토리에 django 프로젝트를 두고자할 경우, `web.3.4.config` 수정이 필요합니다.
+	 * 하위 디렉토리에 django 프로젝트를 두고자할 경우, `web.3.4.config` 수정이 필요합니다. (파이썬 2.7을 쓰시고자 하실 경우에는 `web.2.7.config` 파일을 수정해주세요.)
 
  * 프로젝트 ROOT 에 `requirements.txt` 파일이 꼭 필요하며, 현 Django 프로젝트 구동에 필요한 파이썬 팩키지들을 모두 명시해주세요. Azure WebApp 배포 시에 본 `requirements.txt` 에 명시한 파이썬 팩키지가 자동설치됩니다. 아래는 예시입니다.
 ```
 django
 pillow
 ```
- * `프로젝트/settings.py` 에 STATIC/MEDIA 설정을 꼭 넣어주세요. `web.3.4.config` 에서 아래 설정값으로 STATIC/MEDIA 파일 서빙을 하도록 설정되어있습니다.
+ * `프로젝트/settings.py` 에 STATIC/MEDIA 설정을 꼭 넣어주세요. `web.3.4.config` (혹은 `web.2.7.config`) 에서 아래 설정값으로 STATIC/MEDIA 파일 서빙을 하도록 설정되어있습니다.
 ```python
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -78,7 +79,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ```
 
 
-`web.3.4.config` 파일 내 `DJANGO_SETTINGS_MODULE` 값을 Azure WebApp 에서 쓸 settings 로 설정해주세요. 다음은 설정 예입니다.
+`web.3.4.config` (혹은 `web.2.7.config`) 파일 내 `DJANGO_SETTINGS_MODULE` 값을 Azure WebApp 에서 쓸 settings 로 설정해주세요. 다음은 설정 예입니다.
 
 ```xml
 <add key="DJANGO_SETTINGS_MODULE" value="myproject.settings" />
