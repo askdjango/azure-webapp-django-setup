@@ -133,6 +133,11 @@ class AskDjango(object):
                     self.run_cmd('env\scripts\python manage.py collectstatic --settings={django_settings_module} --noinput --clear',
                             django_settings_module=django_settings_module)
 
+                    log('Compiling Django message files.')
+
+                    self.run_cmd('env\scripts\python manage.py compilemessages --settings={django_settings_module}',
+                            django_settings_module=django_settings_module)
+
     def post_python_deployment(self):
         if self.post_deployment_action:
             self.run_cmd(self.post_deployment_action)
@@ -171,4 +176,3 @@ class AskDjango(object):
 
 if __name__ == '__main__':
     AskDjango().run()
-
