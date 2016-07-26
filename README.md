@@ -150,7 +150,4 @@ Azure WebApp 에 배포한 Django 프로젝트 샘플은 [이곳](http://msdjang
  * [AskDjango 페이스북 페이지](http://facebook.com/askdjango)
  * [AskDjango 페이스북 그룹](http://facebook.com/groups/askdjango)
  * [AskDjango 공식 사이트](http://festi.kr)
-	 * [서비스 차근차근 시작하기, 강의](http://festi.kr/class/service/) : 접수 중
-     * [장고 차근차근 시작하기, 강의](http://festi.kr/class/django/) : 4기 진행 중
-     * [파이썬 차근차근 시작하기, 강의](http://festi.kr/class/python/) : 4기 준비 중
 
